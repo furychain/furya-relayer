@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/cosmos/cosmos-sdk v0.45.10
-	github.com/gridironxyz/gridiron v0.1.0-alpha.0.20230118111121-3e92b9518a3f
+	github.com/furychain/furya v0.1.0-alpha.0.20230118111121-3e92b9518a3f
 	github.com/gogo/protobuf v1.3.3
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/spf13/cobra v1.6.1
@@ -132,7 +132,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-replace github.com/cosmos/ibc-go/v3 => github.com/gridironxyz/ibc-go/v3 v3.0.0-rc2.0.20230105134315-1870174ab6da
+replace github.com/cosmos/ibc-go/v3 => github.com/furychain/ibc-go/v3 v3.5.0-ibc
 
 replace github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
 

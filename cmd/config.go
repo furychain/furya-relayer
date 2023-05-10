@@ -593,7 +593,7 @@ func initConfig(cmd *cobra.Command, a *appState) error {
 				chains[chainName] = chain
 			}
 
-			// Create gridiron settelemnt if configured
+			// Create furya settelemnt if configured
 			if cfgWrapper.Settlement != "" {
 				settlementChain := chains[cfgWrapper.Settlement]
 				if settlementChain == nil {

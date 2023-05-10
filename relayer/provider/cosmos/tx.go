@@ -162,7 +162,7 @@ func (cc *CosmosProvider) BuildAndBroadcast(ctx context.Context, msgs []provider
 func (cc *CosmosProvider) SendMessages(ctx context.Context, msgs []provider.RelayerMessage, memo string) (*provider.RelayerTxResponse, bool, error) {
 	// When bringing up a connection with a rollapp, there may be many failures until
 	// the state is accepted and finalized. The messages should be sent only when
-	// the gridiron hub finalize the corresponding state to which the message belongs to.
+	// the furya hub finalize the corresponding state to which the message belongs to.
 	// This is a special case of rollapp messages relying
 
 	var resp *sdk.TxResponse = nil

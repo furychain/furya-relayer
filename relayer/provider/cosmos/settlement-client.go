@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"sync"
 
-	rollapptypes "github.com/gridironxyz/gridiron/x/rollapp/types"
+	rollapptypes "github.com/furychain/furya/x/rollapp/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
 var (
 	lock                       = &sync.Mutex{}
-	gridironProviderSingleton *GridironSettlementProvider
+	furyaProviderSingleton *GridironSettlementProvider
 )
 
 type GridironSettlementProvider struct {
@@ -24,12 +24,12 @@ type GridironSettlementProvider struct {
 func NewSettlementProvider(cp *CosmosProvider) (*GridironSettlementProvider, error) {
 	lock.Lock()
 	defer lock.Unlock()
-	if gridironProviderSingleton != nil {
+	if furyaProviderSingleton != nil {
 		return nil, fmt.Errorf("settlement was already initialized as %s. Cannot be initialized twich as %s",
-			gridironProviderSingleton.ChainName(), cp.ChainName())
+			furyaProviderSingleton.ChainName(), cp.ChainName())
 	}
-	gridironProviderSingleton = &GridironSettlementProvider{cp}
-	return gridironProviderSingleton, nil
+	furyaProviderSingleton = &GridironSettlementProvider{cp}
+	return furyaProviderSingleton, nil
 }
 
 // QueryLatestFinalizedHeight return the latest finalized height of a rollapp
@@ -53,5 +53,5 @@ func (cc *GridironSettlementProvider) QueryLatestFinalizedHeight(ctx context.Con
 }
 
 func GetLatestFinalizedStateHeight(ctx context.Context, rollapId string) (int64, error) {
-	return gridironProviderSingleton.QueryLatestFinalizedHeight(ctx, rollapId)
+	return furyaProviderSingleton.QueryLatestFinalizedHeight(ctx, rollapId)
 }
